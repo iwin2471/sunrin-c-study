@@ -62,6 +62,14 @@ node *searchNode(char searchData){
     return p;
 }
 
+void insertAfter(node *p, char inputData){
+  node *newNode = (node*)malloc(sizeof(node));
+  printf("insertAfter('%c','%c')\n", p->data, inputData);
+  newNode->data=inputData;
+  newNode->next=p->next;
+  p->next=newNode;
+}
+
 int main(){
 	node *resultNode;
 	initLinkedList();
@@ -76,6 +84,8 @@ int main(){
           printf("연결리스트에 노드가 존재합니다.\n");
   	else
 	  printf("연결리스트에 노드가 존재하않스빈다");
+     	insertAfter(searchNode('B'), 'X');
+     	printLinkedList();
 	return 0;
 }
 
